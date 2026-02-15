@@ -348,7 +348,6 @@ class MediaController:
             try:
                 properties = dbus.Interface(iface, 'org.freedesktop.DBus.Properties')
                 metadata = properties.Get('org.mpris.MediaPlayer2.Player', 'Metadata')
-                log.debug(metadata)
                 art_url = metadata.get('mpris:artUrl')
                 if art_url is None:
                     thumbnails.append(None)

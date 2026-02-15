@@ -87,11 +87,9 @@ class Play(MediaAction):
         ## Thumbnail
         thumbnail = self._load_thumbnail(display_player)
         if thumbnail is not None:
-            log.debug("------> Image is none")
             image = self.generate_image(background=thumbnail, icon=image, size=size, valign=valign)
             self.set_media(image=image)
         else:
-            log.debug("------> Image is none")
             self.set_media(image=image, size=size, valign=valign)
 
 class Pause(MediaAction):
@@ -214,13 +212,10 @@ class PlayPause(MediaAction):
         image = Image.open(file.get(status, file["Stopped"]))
 
         thumbnail = self._load_thumbnail(display_player)
-        log.debug("thumbnail")
         if thumbnail is not None:
-            log.debug("------------ is not none")
             image = self.generate_image(background=thumbnail, icon=image, size=size, valign=valign)
             self.set_media(image=image)
         else:
-            log.debug("------------ is none")
             self.set_media(image=image, size=size, valign=valign)
 
 class Next(MediaAction):
@@ -1124,8 +1119,6 @@ class ThumbnailBackground(MediaAction):
         - Request final composite to show remaining actions/background
         """
 
-        log.debug("ThumbnailBackground: clear called, cleaning up cached images")
-        
         # Reset this instance's tracking variables
         self.last_thumbnail_path = None
         self.last_size_mode = None
